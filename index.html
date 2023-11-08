@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Dice Game</title>
+</head>
+
+<body>
+  <header>
+    <img src="./images/dicesIcon.png" alt="" width="50px">
+    <h1>Roll the dice</h1>
+    <img src="./images/dicesIcon.png" alt="" width="50px">
+  </header>
+
+  <main>
+    <p id="message">Press "Roll" to start the game.</p>
+    <section class="choice">
+      <div class="player">
+        <h3 id="playerName">Player</h3>
+        <div class="dices">
+          <img id="dicePlayer" src="./images/dice1.png" alt="" width="80px" height="80px">
+          <img id="diceComputer" src="./images/dice1.png" alt="" width="80px" height="80px">
+        </div>
+        <p>Score: <span id="playerScore">0</span></p>
+
+      </div>
+      <div class="computer">
+        <h3 id="computerName">Computer</h3>
+        <p>Score: <span id="computerScore">0</span></p>
+
+      </div>
+
+    </section>
+    <div class="btnwrapper">
+      <button id="roll">Roll</button>
+      <button class="playAgain hidden">Play Again</button>
+    </div>
+
+  </main>
+
+  <footer></footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
