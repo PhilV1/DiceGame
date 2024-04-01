@@ -7,9 +7,9 @@ const message = document.getElementById('message');
 const playerScoreboard = document.getElementById('playerScore');
 const computerScoreboard = document.getElementById('computerScore');
 const playAgain = document.querySelector('.playAgain');
+
 const playerName = document.getElementById('playerName');
 const computerName = document.getElementById('computerName');
-console.log(playerName, computerName);
 
 // Play Again
 const resetGame = function () {
@@ -19,10 +19,11 @@ const resetGame = function () {
   computerScoreboard.textContent = computerScore;
 };
 
+// Scores
 let playerScore = 0;
 let computerScore = 0;
 
-// Dice Roll
+// Generate Dice Roll
 diceRoll.addEventListener('click', function () {
   let playerChoice = Math.trunc(Math.random() * 6) + 1;
   let computerChoice = Math.trunc(Math.random() * 6) + 1;
@@ -37,8 +38,12 @@ diceRoll.addEventListener('click', function () {
       message.textContent = 'You won!';
       document.querySelector('.player').classList.add('darkgrey');
       document.querySelector('.computer').classList.remove('darkgrey');
-      playerName.classList.add('nameColor');
-      computerName.classList.remove('nameColor');
+      // player won add color to dice and remove textcolor
+      playerName.classList.remove('nameColor');
+      dicePlayer.classList.add('diceColor');
+      // add opacity to computer
+      computerName.classList.add('nameColor');
+      diceComputer.classList.remove('diceColor');
     } else {
       console.log('You won the game');
       document.getElementById('roll').style.display = 'none';
@@ -49,8 +54,10 @@ diceRoll.addEventListener('click', function () {
       message.textContent = 'Congratulation, you won! Wanna play again?';
       document.querySelector('.player').classList.add('darkgrey');
       document.querySelector('.computer').classList.remove('darkgrey');
-      playerName.classList.add('nameColor');
-      computerName.classList.remove('nameColor');
+      playerName.classList.remove('nameColor');
+      computerName.classList.add('nameColor');
+      diceComputer.classList.remove('diceColor');
+      dicePlayer.classList.add('diceColor');
     }
   } else if (computerChoice > playerChoice) {
     if (computerScore < 4) {
@@ -60,8 +67,10 @@ diceRoll.addEventListener('click', function () {
       message.textContent = 'You lost';
       document.querySelector('.computer').classList.add('darkgrey');
       document.querySelector('.player').classList.remove('darkgrey');
-      computerName.classList.add('nameColor');
-      playerName.classList.remove('nameColor');
+      computerName.classList.remove('nameColor');
+      playerName.classList.add('nameColor');
+      dicePlayer.classList.remove('diceColor');
+      diceComputer.classList.add('diceColor');
     } else {
       console.log('You lost the game');
       document.getElementById('roll').style.display = 'none';
@@ -72,8 +81,10 @@ diceRoll.addEventListener('click', function () {
       message.textContent = 'You lost the game. Better luck next time.';
       document.querySelector('.computer').classList.add('darkgrey');
       document.querySelector('.player').classList.remove('darkgrey');
-      computerName.classList.add('nameColor');
-      playerName.classList.remove('nameColor');
+      computerName.classList.remove('nameColor');
+      playerName.classList.add('nameColor');
+      dicePlayer.classList.remove('diceColor');
+      diceComputer.classList.add('diceColor');
     }
   } else {
     console.log('It is a draw');
@@ -82,6 +93,8 @@ diceRoll.addEventListener('click', function () {
     document.querySelector('.player').classList.remove('darkgrey');
     computerName.classList.remove('nameColor');
     playerName.classList.remove('nameColor');
+    diceComputer.classList.remove('diceColor');
+    dicePlayer.classList.remove('diceColor');
   }
 });
 
@@ -94,4 +107,6 @@ playAgain.addEventListener('click', function () {
   document.querySelector('.player').classList.remove('darkgrey');
   computerName.classList.remove('nameColor');
   playerName.classList.remove('nameColor');
+  dicePlayer.classList.remove('diceColor');
+  diceComputer.classList.remove('diceColor');
 });
